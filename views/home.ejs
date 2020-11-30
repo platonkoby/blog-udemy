@@ -1,0 +1,16 @@
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p><%= startingContent %></p>
+<% for (let {title, body} of allPosts) { %>
+    <h1><%= title %></h1>
+    <p><%= bodyShortener(body, 10, 60).str %>
+    <%if (bodyShortener(body, 10, 60).bi) {%>
+        <a href="posts/<%= title.toLowerCase().replace(/\s/g, '-') %>">Read More</a>
+    <% } %>
+</p>
+<% } %>
+
+<%- include("partials/footer"); -%>
+
+
